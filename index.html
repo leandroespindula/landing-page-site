@@ -46,6 +46,7 @@
       background-color: #293c99;
       color: white;
       border: none;
+      margin-bottom:1.5rem ;
       padding: 15px 30px;
       font-size: 1rem;
       border-radius: 8px;
@@ -76,6 +77,36 @@
       font-weight: bold;
     }
 
+    .highlight-link {
+  font-weight: 600;
+  color: #d63031;
+  font-size: 1.2rem;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.highlight-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #d63031;
+  transition: width 0.3s ease;
+}
+
+.highlight-link:hover {
+  color: #e74c3c;
+  transform: scale(1.05);
+}
+
+.highlight-link:hover::after {
+  width: 100%;
+}
+
+
     .example-link {
       font-size: 1.1rem;
       margin: 20px 0;
@@ -89,6 +120,46 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    .lista-modulos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    @keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(41, 60, 153, 0.6);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(41, 60, 153, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(41, 60, 153, 0);
+  }
+}
+
+.btn {
+  background-color: #293c99;
+  color: #fff;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: pulse 2s infinite;
+}
+
+.btn:hover {
+  background-color: #1f2e73;
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(41, 60, 153, 0.6);
+}
+
   </style>
 
   <!-- Meta Pixel Code -->
@@ -133,10 +204,18 @@
     <p>Ideal para autônomos que querem ser encontrados no Google e aumentar as vendas, sem pagar caro por um site ou depender de mensalidades.</p>
 
     <p class="highlight">🔥 Apenas R$ 19,97 - com 7 dias de garantia!</p>
+    <button class="btn" onclick="fbq('track', 'Lead'); window.open('https://pay.kiwify.com.br/dYag85V', '_blank')">
+  Quero meu site
+</button>
 
-    <p class="example-link">💡 Veja um exemplo de site criado com nosso template: <br>
-      <a href="https://sites.google.com/view/barbearia-rimbeiro/inicio" target="_blank">Barbearia Rimbeiro</a>
-    </p>
+
+    <p class="example-link">
+  💡 Veja um exemplo de site criado com nosso template: <br>
+  <a class="highlight-link" href="https://sites.google.com/view/barbearia-rimbeiro/inicio" target="_blank">
+    🔗 Barbearia Rimbeiro
+  </a>
+</p>
+
 
     <h2>🎁 Bônus Exclusivos</h2>
     <ul>
@@ -147,14 +226,17 @@
 
     <h2>🔒 Garantia de 7 Dias</h2>
     <p>Você tem <strong>7 dias de garantia</strong> para testar o material com tranquilidade. Se não gostar do template ou do curso, devolvemos 100% do seu dinheiro. Sem burocracia.</p>
-
+    <button class="btn" onclick="fbq('track', 'Lead'); window.open('https://pay.kiwify.com.br/dYag85V', '_blank')">
+  Quero meu site
+</button>
+ 
     <h2>📚 O que você vai aprender no curso?</h2>
     <p>Você vai aprender passo a passo como personalizar completamente o seu site, mesmo sem nenhuma experiência anterior!</p>
 
-    <ul>
+    <ul class="lista-modulos">
       <li><strong>Módulo 1: Introdução Template Fácil</strong>
         <ul>
-          <li>✅ Introdução Template Fácil</li>
+          <li class="check"><span>✅</span> Introdução Template Fácil</li>
           <li>✅ Como Fazer Uma Cópia do Template</li>
           <li>✅ Seu Template Fácil Aqui</li>
           <li>✅ Como Compartilhar o Template Para Suporte</li>
@@ -193,13 +275,54 @@
     </ul>
 
 
-    <button class="btn" onclick="fbq('track', 'Lead'); window.location.href='https://wa.me/5548996590766?text=Ol%C3%A1%2C%20quero%20ter%20um%20site%20profissional%20sem%20pagar%20mensalidades!'">
-      Quero meu site
-    </button>
-  </div>
+    <button class="btn" onclick="fbq('track', 'Lead'); window.open('https://pay.kiwify.com.br/dYag85V', '_blank')">
+  Quero meu site
+</button>
+
+  </div>  
+  <button id="topBtn" title="Voltar ao topo">⬆️ Topo</button>
 
   <footer>
     &copy; 2025 Template Fácil - Todos os direitos reservados.
   </footer>
+  <style>
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: #293c99;
+      color: white;
+      cursor: pointer;
+      padding: 12px 18px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    #topBtn:hover {
+      background-color: #1f2e73;
+    }
+  </style>
+
+  <script>
+    // Mostrar o botão ao rolar
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+
+    // Rolar ao topo
+    topBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
 </body>
 </html>
